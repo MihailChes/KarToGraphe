@@ -18,6 +18,9 @@ def handle_help(message):
 def handle_show_city(message):
     city_name = message.text.split()[-1]
     # Реализуй отрисовку города по запросу
+    cities = message.text.split()[1:]
+    manager.create_grapf('img.png', cities)
+    bot.send_photo(message.chat.id, photo=open("img.png", "rb"))
 
 
 @bot.message_handler(commands=['remember_city'])
